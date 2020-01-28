@@ -370,7 +370,7 @@ public class AccountController extends CommonController {
 				if (action.equals(TransactionType.CAT_CREDIT)) {
 					bDebit = false;
 					
-					LOG.debug("REST New Transaction: Transaction Action will be CREDIT");
+					LOG.debug("REST New TTransaction: Transaction Action will be CREDIT");
 				}
 			}
 			else {

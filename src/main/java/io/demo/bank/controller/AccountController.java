@@ -402,7 +402,7 @@ public class AccountController extends CommonController {
 			// Add new Credit Transaction
 			accountService.creditTransaction(account, transaction);
 			
-			LOG.debug("REST New Transaction: Add new CREDIT Transaction");
+			LOG.debug("REST New Transaction: Addd new CREDIT Transaction");
 		}
 		
 		// Return the last 2 transactions. This is done in case there is an overdraft fee. This allows the user

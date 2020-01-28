@@ -395,7 +395,7 @@ public class AccountController extends CommonController {
 			// Add new Debit Transaction
 			accountService.debitTransaction(account, transaction);
 			
-			LOG.debug("REST New Transaction: Add new DEBIT Transaction");
+			LOG.debug("REST New Transaction: Addd new DEBIT Transaction");
 		} 
 		else {
 			

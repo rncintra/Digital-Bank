@@ -11,18 +11,19 @@
 	<name>Digital Bank</name>
 	<description>Digital Online Banking Sample Application</description>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.7.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-
 	<repositories>
+		<repository>
+			<id>spring-plugins-release</id>
+			<name>spring-plugins</name>
+			<url>https://ca.bintray.com/sv</url>
+			<snapshots>
+				<enabled>false</enabled> <!-- or set to true if desired, default is false -->
+			</snapshots>
+		</repository>
 		<repository>
 			<id>bintray-ca-sv</id>
 			<name>bintray-plugins</name>
-			<url>https://ca.bintray.com/sv</url>
+			<url>https://repo.spring.io/plugins-release/</url>
 		</repository>
 		<repository>
 			<id>central</id>
@@ -34,6 +35,13 @@
 			</snapshots>
 		</repository>
 	</repositories>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.7.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

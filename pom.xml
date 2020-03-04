@@ -21,8 +21,17 @@
 	<repositories>
 		<repository>
 			<id>bintray-ca-sv</id>
-			<name>bintray-ca</name>
-			<url>http://ca.bintray.com/sv</url>
+			<name>bintray-plugins</name>
+			<url>https://ca.bintray.com/sv</url>
+		</repository>
+		<repository>
+			<id>central</id>
+			<name>Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url> <!-- the https you've been looking for -->
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled> <!-- or set to true if desired, default is false -->
+			</snapshots>
 		</repository>
 	</repositories>
 
@@ -44,7 +53,7 @@
         <revision>2.0.0.${buildNumber}</revision>
         <contextPathName>bank</contextPathName>
 	</properties>
-	
+
 	<dependencyManagement>
   		<dependencies>
     		<dependency>
@@ -162,12 +171,12 @@
       		<groupId>org.apache.activemq</groupId>
       		<artifactId>artemis-jms-client</artifactId>
    		</dependency>
-   		<dependency> 
-        	<groupId>com.fasterxml.jackson.core</groupId> 
-        	<artifactId>jackson-databind</artifactId> 
+   		<dependency>
+        	<groupId>com.fasterxml.jackson.core</groupId>
+        	<artifactId>jackson-databind</artifactId>
 		</dependency>
-		
-		<!-- Serenity BDD Cucumber -->		
+
+		<!-- Serenity BDD Cucumber -->
 		<dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -282,7 +291,7 @@
 		</dependency>
 
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -298,7 +307,7 @@
 						<goals>
 							<goal>build-info</goal>
 						</goals>
-					</execution>	
+					</execution>
 				   <execution>
 			          <id>pre-integration-test</id>
 			          <goals>
@@ -310,7 +319,7 @@
 			          <goals>
 			            <goal>stop</goal>
 			          </goals>
-			        </execution> 
+			        </execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -326,7 +335,7 @@
                 </archive>
                 <warName>${contextPathName}##${revision}</warName>
             </configuration>
-        </plugin>   
+        </plugin>
 			<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -389,7 +398,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin> 
+            </plugin>
 		</plugins>
 	</build>
 </project>

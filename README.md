@@ -8,7 +8,8 @@ Digital Bank is a sample application that was developed for exploratory purposes
 
 ## Prerequisites
 
-* Java SDK 8 - Required only for JUnit tests using CodeSV mock services.
+* Install [Java SDK](https://openjdk.java.net/)
+  * [Java SDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) - Required only for JUnit tests using CodeSV mock services.
 * Install [Apache Maven](https://maven.apache.org/install.html)
 * Install [Eclipse IDE](https://www.eclipse.org/ide/), [Spring Tools Suite](https://spring.io/tools) or [IntelliJ](https://www.jetbrains.com/idea/)
 
@@ -40,13 +41,19 @@ Digital Bank can be deployed as a single standalone application service or be de
   * Start the Tomcat service.
   * A digitalbank.log file will be created within ${catalina.base}/logs.
 * [Docker Deployment](https://hub.docker.com/r/asburymr/digitalbank)
-* [Docker Compose Deployment](docker-compose.yml)
-  * Use docker-compose up to deploy all of the defined services integrated together.
+  * Deploy Digital Bank as a standalone service.
+* [Docker Compose Deployment](docker-compose)
+  * Deploy Digital Bank as a full stack to enable all services.
+  * Use 'docker-compose -f [DOCKER_COMPOSE_FILE_NAME]'.
+    * [H2 In-Memory Database Deployment](docker-compose/docker-compose-h2.yml)
+    * [MS SQL Server Database Deployment](docker-compose/docker-compose-mssql.yml)
+    * [MySQL Database Deployment](docker-compose/docker-compose-mysql.yml)
+    * [PostgreSQL Database Deployment](docker-compose/docker-compose-postgres.yml)
 
 ## Interfaces
 
 * Web Interface @ http://{hostname}:{port}/bank
-  * Sample user data is created when the application is started. User credentials for these user are as follows:
+  * Sample user data is created when the application is started. User credentials for these users are as follows:
     * jsmith@demo.io/Demo123!
     * nsmith@demo.io/Demo123!
 * Swagger UI @ http://{hostname}:{port}/bank/swagger-ui.html
@@ -63,7 +70,7 @@ Digital Bank can be deployed as a single standalone application service or be de
 * [Apache Tomcat](http://tomcat.apache.org/) - Application Server / Servlet Engine
 * [Apache Artemis](https://activemq.apache.org/components/artemis/) - Messaging Broker
 * [H2 Database Engine](https://www.h2database.com/html/main.html) - In-Memory Database
-* [MSSQL Server Database Engine](https://www.microsoft.com/en-us/sql-server/default.aspx) - Microsoft SQL Server
+* [MS SQL Server Database Engine](https://www.microsoft.com/en-us/sql-server/default.aspx) - Microsoft SQL Server
 * [MySQL Database Engine](https://www.mysql.com/) - MySQL 
 * [PostgreSQL Database Engine](https://www.postgresql.org/) - PostgreSQL
 * [Serenity BDD](http://www.thucydides.info/#/) - Acceptance Testing Framework

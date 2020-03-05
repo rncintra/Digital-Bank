@@ -316,18 +316,6 @@
 							<goal>build-info</goal>
 						</goals>
 					</execution>
-				   <execution>
-			          <id>pre-integration-test</id>
-			          <goals>
-			            <goal>start</goal>
-			          </goals>
-			        </execution>
-			        <execution>
-			          <id>post-integration-test</id>
-			          <goals>
-			            <goal>stop</goal>
-			          </goals>
-			        </execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -344,20 +332,6 @@
                 <warName>${contextPathName}__${revision}</warName>
             </configuration>
         </plugin>
-			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M3</version><!--$NO-MVN-MAN-VER$-->
-                <configuration>
-                	<excludes>
-                        <exclude>**/serenity/*Test*.java</exclude>
-                    </excludes>
-                    <skip>${skipUnitTests}</skip>
-                    <forkCount>2</forkCount>
-                    <threadCount>1</threadCount>
-                    <argLine></argLine>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -366,46 +340,6 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.0.0-M3</version><!--$NO-MVN-MAN-VER$-->
-                <configuration>
-                    <includes>
-                        <include>**/serenity/*Test*.java</include>
-                    </includes>
-                    <systemPropertyVariables>
-                        <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
-                    </systemPropertyVariables>
-                    <parallel>classes</parallel>
-                    <threadCount>${parallel.tests}</threadCount>
-                    <forkCount>${parallel.tests}</forkCount>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-			<plugin>
-                <groupId>net.serenity-bdd.maven.plugins</groupId>
-                <artifactId>serenity-maven-plugin</artifactId>
-                <version>${serenity.maven.version}</version>
-                <configuration>
-                  <tags>${tags}</tags>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>serenity-reports</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>aggregate</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
 		</plugins>
 	</build>

@@ -19,10 +19,18 @@
 	</parent>
 
 	<repositories>
+	 	<repository>
+			<id>spring-plugins-release</id>
+			<name>spring-plugins</name>
+			<url>https://ca.bintray.com/sv</url>
+			<snapshots>
+				<enabled>false</enabled> <!-- or set to true if desired, default is false -->
+			</snapshots>
+		</repository>
 		<repository>
 			<id>bintray-ca-sv</id>
 			<name>bintray-plugins</name>
-			<url>https://ca.bintray.com/sv</url>
+			<url>https://repo.spring.io/plugins-release/</url>
 		</repository>
 		<repository>
 			<id>central</id>
@@ -32,8 +40,8 @@
 			<snapshots>
 				<enabled>false</enabled> <!-- or set to true if desired, default is false -->
 			</snapshots>
-		</repository>
-	</repositories>
+		 </repository>
+	 </repositories>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -333,7 +341,7 @@
                         <classpathPrefix>lib/</classpathPrefix>
                     </manifest>
                 </archive>
-                <warName>${contextPathName}##${revision}</warName>
+                <warName>${contextPathName}__${revision}</warName>
             </configuration>
         </plugin>
 			<plugin>

@@ -19,33 +19,37 @@
 	</parent>
 
 	<repositories>
+	 	<repository>
+			<id>spring-plugins-release</id>
+			<name>spring-plugins</name>
+			<url>https://ca.bintray.com/sv</url>
+			<snapshots>
+				<enabled>false</enabled> <!-- or set to true if desired, default is false -->
+			</snapshots>
+		</repository>
 		<repository>
 			<id>bintray-ca-sv</id>
-			<name>bintray-ca</name>
-			<url>http://ca.bintray.com/sv</url>
+			<name>bintray-plugins</name>
+			<url>https://repo.spring.io/plugins-release/</url>
 		</repository>
-	</repositories>
+		<repository>
+			<id>central</id>
+			<name>Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url> <!-- the https you've been looking for -->
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled> <!-- or set to true if desired, default is false -->
+			</snapshots>
+		 </repository>
+	 </repositories>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>8</java.version>
-		<serenity.version>2.0.69</serenity.version>
-		<serenity.maven.version>2.0.69</serenity.maven.version>
-		<serenity.spring.version>2.0.69</serenity.spring.version>
-        <serenity.cucumber.version>1.0.21</serenity.cucumber.version>
-        <cucumber.version>4.2.0</cucumber.version>
-        <selenium.version>3.141.59</selenium.version>
-        <tags></tags>
-        <parallel.tests>1</parallel.tests>
-        <webdriver.driver>firefox</webdriver.driver>
-        <webdriver.base.url>http://localhost:8080/bank/</webdriver.base.url>
-        <buildNumber>local</buildNumber>
-        <revision>2.0.0.${buildNumber}</revision>
-        <contextPathName>bank</contextPathName>
 	</properties>
-	
-	<dependencyManagement>
+
+<!--	<dependencyManagement>
   		<dependencies>
     		<dependency>
       			<groupId>org.junit</groupId>
@@ -55,7 +59,7 @@
       			<scope>import</scope>
     		</dependency>
   		</dependencies>
-	</dependencyManagement>
+	</dependencyManagement>-->
 
 	<dependencies>
 		<dependency>
@@ -162,12 +166,12 @@
       		<groupId>org.apache.activemq</groupId>
       		<artifactId>artemis-jms-client</artifactId>
    		</dependency>
-   		<dependency> 
-        	<groupId>com.fasterxml.jackson.core</groupId> 
-        	<artifactId>jackson-databind</artifactId> 
+   		<dependency>
+        	<groupId>com.fasterxml.jackson.core</groupId>
+        	<artifactId>jackson-databind</artifactId>
 		</dependency>
-		
-		<!-- Serenity BDD Cucumber -->		
+
+		<!-- Serenity BDD Cucumber -->
 		<dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -266,6 +270,12 @@
         	<version>${selenium.version}</version><!--$NO-MVN-MAN-VER$-->
         	<scope>test</scope>
     	</dependency>
+    	<dependency>
+    		<groupId>io.github.bonigarcia</groupId>
+    		<artifactId>webdrivermanager</artifactId>
+    		<version>3.8.1</version>
+    		<scope>test</scope>
+		</dependency>
 
 		<!-- CodeSV public build -->
 		<dependency>
@@ -276,114 +286,118 @@
 		</dependency>
 
 	</dependencies>
-	
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-	              <wait>1000</wait>
-	              <maxAttempts>180</maxAttempts>
-			     </configuration>
-				<executions>
-					<execution>
-						<id>build-info</id>
-						<goals>
-							<goal>build-info</goal>
-						</goals>
-					</execution>	
-				   <execution>
-			          <id>pre-integration-test</id>
-			          <goals>
-			            <goal>start</goal>
-			          </goals>
-			        </execution>
-			        <execution>
-			          <id>post-integration-test</id>
-			          <goals>
-			            <goal>stop</goal>
-			          </goals>
-			        </execution> 
-				</executions>
+
+<build>
+	<plugins>
+		<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<configuration>
+							<archive>
+								<addMavenDescriptor>false</addMavenDescriptor>
+									<manifest>
+											<addClasspath>true</addClasspath>
+											<classpathPrefix>lib/</classpathPrefix>
+									</manifest>
+							</archive>
+							<warName>${contextPathName}__${revision}</warName>
+					</configuration>
 			</plugin>
-			<plugin>
-            	<groupId>org.apache.maven.plugins</groupId>
-            	<artifactId>maven-war-plugin</artifactId>
-            	<configuration>
-                <archive>
-                	<addMavenDescriptor>false</addMavenDescriptor>
-                    <manifest>
-                        <addClasspath>true</addClasspath>
-                        <classpathPrefix>lib/</classpathPrefix>
-                    </manifest>
-                </archive>
-                <warName>${contextPathName}##${revision}</warName>
-            </configuration>
-        </plugin>   
-			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M3</version><!--$NO-MVN-MAN-VER$-->
-                <configuration>
-                	<excludes>
-                        <exclude>**/serenity/*Test*.java</exclude>
-                    </excludes>
-                    <skip>${skipUnitTests}</skip>
-                    <forkCount>2</forkCount>
-                    <threadCount>1</threadCount>
-                    <argLine></argLine>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version><!--$NO-MVN-MAN-VER$-->
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.0.0-M3</version><!--$NO-MVN-MAN-VER$-->
-                <configuration>
-                    <includes>
-                        <include>**/serenity/*Test*.java</include>
-                    </includes>
-                    <systemPropertyVariables>
-                        <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
-                    </systemPropertyVariables>
-                    <parallel>classes</parallel>
-                    <threadCount>${parallel.tests}</threadCount>
-                    <forkCount>${parallel.tests}</forkCount>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-			<plugin>
-                <groupId>net.serenity-bdd.maven.plugins</groupId>
-                <artifactId>serenity-maven-plugin</artifactId>
-                <version>${serenity.maven.version}</version>
-                <configuration>
-                  <tags>${tags}</tags>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>serenity-reports</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>aggregate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin> 
+
 		</plugins>
 	</build>
 </project>
+<!--
+<plugin>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-maven-plugin</artifactId>
+	<configuration>
+					<wait>1000</wait>
+					<maxAttempts>180</maxAttempts>
+		 </configuration>
+	<executions>
+		<execution>
+			<id>build-info</id>
+			<goals>
+				<goal>build-info</goal>
+			</goals>
+		</execution>
+		 <execution>
+					<id>pre-integration-test</id>
+					<goals>
+						<goal>start</goal>
+					</goals>
+				</execution>
+				<execution>
+					<id>post-integration-test</id>
+					<goals>
+						<goal>stop</goal>
+					</goals>
+				</execution>
+	</executions>
+</plugin>
+
+<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.0.0-M3</version>
+					<configuration>
+						<excludes>
+									<exclude>**/serenity/*Test*.java</exclude>
+							</excludes>
+							<skip>${skipUnitTests}</skip>
+							<forkCount>2</forkCount>
+							<threadCount>1</threadCount>
+							<argLine></argLine>
+					</configuration>
+			</plugin>
+			<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.0</version>
+					<configuration>
+							<source>${java.version}</source>
+							<target>${java.version}</target>
+					</configuration>
+			</plugin>
+			<plugin>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>3.0.0-M3</version>
+					<configuration>
+							<includes>
+									<include>**/serenity/*Test*.java</include>
+							</includes>
+							<systemPropertyVariables>
+									<webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+							</systemPropertyVariables>
+							<parallel>classes</parallel>
+							<threadCount>${parallel.tests}</threadCount>
+							<forkCount>${parallel.tests}</forkCount>
+					</configuration>
+					<executions>
+							<execution>
+									<goals>
+											<goal>integration-test</goal>
+											<goal>verify</goal>
+									</goals>
+							</execution>
+					</executions>
+			</plugin>
+<plugin>
+					<groupId>net.serenity-bdd.maven.plugins</groupId>
+					<artifactId>serenity-maven-plugin</artifactId>
+					<version>${serenity.maven.version}</version>
+					<configuration>
+						<tags>${tags}</tags>
+					</configuration>
+					<executions>
+							<execution>
+									<id>serenity-reports</id>
+									<phase>post-integration-test</phase>
+									<goals>
+											<goal>aggregate</goal>
+									</goals>
+							</execution>
+					</executions>
+			</plugin>
+		-->

@@ -44,7 +44,7 @@ public class CreditCardService {
 	private static String username;
 	private static String password;
 	private static String authToken;
-	private static HttpHeaders requestHeaders;
+	private static HttpHeaders requestHeaders; 
 	
 	// Digital Credit Default properties
 	private static final String DEFAULT_DIGTIAL_CREDIT_PROTOCOL 	= "http";

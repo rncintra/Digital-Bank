@@ -2,7 +2,7 @@
 
 Digital Bank is a sample application that was developed for exploratory purposes to examine development frameworks and techniques. The application is an example online digital banking application with integrations into other services.
 
-## Getting Started
+## Getting Started 
 
 * Using either an Eclipse IDE or IntelliJ, import the source code as an Existing Maven Project. 
 

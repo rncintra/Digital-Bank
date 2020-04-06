@@ -161,7 +161,7 @@ public class UserService {
 	 */
 	public void createUser(Users newUser, String role) {
 	
-		// Encode the password before storing user
+		// Encode the password before storing user name
 		newUser.setPassword(encoder.encode(newUser.getPassword()));
 		
 	    // Set Date of Membership to current date the user account was created

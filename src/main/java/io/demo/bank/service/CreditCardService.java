@@ -70,7 +70,7 @@ public class CreditCardService {
 	public CreditCardDetail getCreditCardDetails (Long id) {
 		
 		
-		if (checkCreditConnection()) {
+		if (checkCreditConnection()) { 
 			
 			// Create the Request
 			HttpEntity<?> requestEntity = new HttpEntity<>(requestHeaders);

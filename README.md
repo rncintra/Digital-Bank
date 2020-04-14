@@ -17,7 +17,7 @@ Digital Bank is a sample application that was developed for exploratory purposes
 
 * JUnit Tests - Execute "mvn clean test" 
 * Serenity BDD Acceptance Tests - Execute "mvn clean verify"
-  * Serenity BDD tests use Cucumber Feature file definitions. 
+  * Serenity BDD tests use Cucumber Feature file definitions.  
     * UI Tests are executed using the Selenium Java framework.
     * API Test are executed using the Rest Assured Java framework.
   * Use '-Dcucumber.options="--tags {tag}"' maven command line option to filter test execution based on Feature or Scenario tags defined within the [feature files](src/test/resources/features).

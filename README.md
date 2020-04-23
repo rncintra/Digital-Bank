@@ -74,7 +74,7 @@ Digital Bank can be deployed as a single standalone application service or be de
 * [MySQL Database Engine](https://www.mysql.com/) - MySQL 
 * [PostgreSQL Database Engine](https://www.postgresql.org/) - PostgreSQL
 * [Serenity BDD](http://www.thucydides.info/#/) - Acceptance Testing Framework
-* [JUnit 5](https://junit.org/junit5/) - Unit Testing Framework
+* [JUnit 5](https://junit.org/junit5/) - Unit Testing Framework 
 * [CodeSV](http://codesv.io/) - Unit Testing with Mock Services
 * [BlazeMeter](https://www.blazemeter.com/) - Functional / Performance API & UI Testing Services
 

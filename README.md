@@ -14,7 +14,7 @@ Digital Bank is a sample application that was developed for exploratory purposes
 * Install [Eclipse IDE](https://www.eclipse.org/ide/), [Spring Tools Suite](https://spring.io/tools) or [IntelliJ](https://www.jetbrains.com/idea/)
 
 ## Executing Tests
-
+  
 * JUnit Tests - Execute "mvn clean test"
 * Serenity BDD Acceptance Tests - Execute "mvn clean verify"
   * Serenity BDD tests use Cucumber Feature file definitions. 

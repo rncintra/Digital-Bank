@@ -39,7 +39,7 @@ Digital Bank can be deployed as a single standalone application service or be de
     * Use to customize the configuration of the application.
     * The digitalbank.properties file is configured to be a "watched resource" in the deployment context. Any updates to the digitalbank.properties file will automatically trigger Tomcat to recycle the application to pick up the new changes.
   * Start the Tomcat service.
-  * A digitalbank.log file will be created within ${catalina.base}/logs.
+  * A digitalbank.log file will be created within ${catalina.base}/logs. 
 * [Docker Deployment](https://hub.docker.com/r/asburymr/digitalbank)
   * Deploy Digital Bank as a standalone service.
 * [Docker Compose Deployment](docker-compose)

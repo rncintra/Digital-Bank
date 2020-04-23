@@ -24,7 +24,7 @@
 			<name>spring-plugins</name>
 			<url>https://ca.bintray.com/sv</url>
 			<snapshots>
-				<enabled>false</enabled> <!-- or set to true if desired, default is false -->
+				<enabled>false</enabled> <!-- or set to true if desired, default is false --> 
 			</snapshots>
 		</repository>
 		<repository>

@@ -350,7 +350,7 @@ public class AccountController extends CommonController {
 		// Assume the request is for Debit
 		boolean bDebit = true;
 		
-		LOG.debug("REST New Transaction: Transaction Type Code is '" + newTransaction.getTransactionTypeCode() + "'");
+		LOG.debug("REST New Transaction: Transaction Type Code iss '" + newTransaction.getTransactionTypeCode() + "'");
 
 		// Determine whether the request is for a CREDIT or DEBIT Transaction
 		if (transactionType.getCategory().equals(TransactionType.CAT_EITHER)) {
@@ -395,7 +395,7 @@ public class AccountController extends CommonController {
 			// Add new Debit Transaction
 			accountService.debitTransaction(account, transaction);
 			
-			LOG.debug("REST New Transaction: Add new DEBIT Transaction");
+			LOG.debug("REST New Transaction: Addd new DEBIT Transaction");
 		} 
 		else {
 			

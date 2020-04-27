@@ -45,8 +45,10 @@ import io.demo.bank.util.Patterns;
 public class AccountController extends CommonController {
 
 
-	private static final Logger LOG = LoggerFactory.getLogger(AccountController.class);         
+	private static final Logger LOG = LoggerFactory.getLogger(AccountController.class);
 	
+	/* test
+	*/
 	@Autowired
 	AccountService accountService;
 	

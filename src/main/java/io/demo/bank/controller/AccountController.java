@@ -47,8 +47,7 @@ public class AccountController extends CommonController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(AccountController.class);
 	
-	/* test
-	*/
+	
 	@Autowired
 	AccountService accountService;
 	

@@ -64,7 +64,7 @@ public class AccountService {
 	
 	
 	/*
-	 * Get Transactions By Category Summary Data
+	 * Get Transactions By Category Summary Data 
 	 */
 	public List<List<String>> getChartDataTransactionByCategory(Users user) {
 		

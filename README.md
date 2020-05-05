@@ -15,7 +15,7 @@ Digital Bank is a sample application that was developed for exploratory purposes
  
 ## Executing Tests
 
-* JUnit Tests - Execute "mvn clean test" 
+* JUnit Tests - Execute "mvn clean test"  
 * Serenity BDD Acceptance Tests - Execute "mvn clean verify"
   * Serenity BDD tests use Cucumber Feature file definitions.  
     * UI Tests are executed using the Selenium Java framework.

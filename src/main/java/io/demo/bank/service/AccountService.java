@@ -407,6 +407,7 @@ public class AccountService {
 		
 		LOG.debug("Credit Transaction to Account: New Number of Transactions: ->" + atl.size());
 		LOG.debug("Credit Transaction to Account: Account Updated.");
+		LOG.debug("Credit Transaction to Account: Account Updated. Just making sure you saw that.");
 		
 	}
 	

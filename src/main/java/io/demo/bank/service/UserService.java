@@ -1,4 +1,4 @@
-package io.demo.bank.service; 
+package io.demo.bank.service;
 
 import java.util.ArrayList;
 import java.util.Collection;

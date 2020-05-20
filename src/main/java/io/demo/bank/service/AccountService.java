@@ -36,7 +36,7 @@ import io.demo.bank.util.Constants;
 @Transactional
 public class AccountService {
 	
-	private static final Logger LOG = LoggerFactory.getLogger(AccountService.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AccountService.class);      
 	
 	@Autowired
 	private AccountRepository accountRepository;

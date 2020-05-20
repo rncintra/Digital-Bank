@@ -332,6 +332,8 @@ public class AccountService {
 		creditTransaction (newAccount, accountTransaction);
 		
 		LOG.debug("Create Account: New Account Created.");
+		LOG.debug("Create Account: New Account Created2.");
+
 				
 		return newAccount;
 		

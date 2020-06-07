@@ -84,7 +84,7 @@ public class AccountController extends CommonController {
 	/*
 	 * ADMIN Role
 	 * Get Account Owner  
-	 */
+	 */ 
 	@PreAuthorize(Constants.HAS_ROLE_ADMIN)
 	@GetMapping(Constants.URI_API_ACCT_OWNER)
 	public ResponseEntity<?> getOwner(@PathVariable(Constants.PATH_VARIABLE_ID) Long id) {			

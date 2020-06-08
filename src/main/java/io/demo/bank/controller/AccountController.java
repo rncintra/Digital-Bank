@@ -368,7 +368,7 @@ public class AccountController extends CommonController {
 				}
 			}
 			else {
-				LOG.debug("REST New Transaction: Transaction Action not specified.");
+				LOG.debug("REST New Transaction: Transaction Action not specified!!.");
 				throw new RestNotAcceptableException (Messages.ACCT_TRAN_ACTION);
 			}			
 		} else if (transactionType.getCategory().equals(TransactionType.CAT_CREDIT)) {

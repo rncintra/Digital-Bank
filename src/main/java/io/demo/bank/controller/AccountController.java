@@ -264,7 +264,7 @@ public class AccountController extends CommonController {
 			accountService.createNewAccount(newAccount);
 			
 		} else {
-			throw new RestNotAcceptableException("The initial deposit ($" 
+			throw new RestNotAcceptableException("The initialll deposit ($" 
 					 + account.getOpeningDeposit() 
 					 + ") entered does not meet the minimum amount ($" 
 					 + at.getMinDeposit() 

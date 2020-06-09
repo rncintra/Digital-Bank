@@ -1,0 +1,203 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bank-front
+spec:
+  ports:
+  - port: 8082
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    app: bank-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bank
+  labels:
+    app: bank-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bank-app
+  template:
+    metadata:
+      labels:
+        app: bank-app
+    spec:
+      containers:
+      - name: bank
+        image: asburymr/digitalbank:2.0.0.103
+        env:
+        - name: CATALINA_OPTS
+          value: "-javaagent:/home/cdd/.cdd/ct_agent/ct_agent.jar"
+        - name: CDD_HOME_FOLDER
+          value: /home/cdd/.cdd
+        - name: CA_APM_MONITORING_ENABLED
+          value: "true"
+        - name: IO_DEMO_CREDIT_CONTEXT-PATH
+          value: /credit
+        - name: IO_DEMO_CREDIT_ENABLED
+          value: "true"
+        - name: IO_DEMO_CREDIT_HOST
+          value: bank-credit
+        - name: IO_DEMO_CREDIT_PASSWORD
+          value: Demo123!
+        - name: IO_DEMO_CREDIT_PORT
+          value: "3500"
+        - name: IO_DEMO_CREDIT_PROTOCOL
+          value: http
+        - name: IO_DEMO_CREDIT_USERNAME
+          value: admin@demo.io
+        - name: IO_DEMO_PARTNER_CREDIT_APP_REQUEST
+          value: CREDIT.APP.REQUEST
+        - name: IO_DEMO_PARTNER_CREDIT_APP_RESPONSE
+          value: CREDIT.APP.RESPONSE
+        - name: LOGGING_LEVEL_IO_DEMO_BANK
+          value: INFO
+        - name: SPRING_ARTEMIS_HOST
+          value: bank-broker
+        - name: SPRING_ARTEMIS_MODE
+          value: native
+        - name: SPRING_ARTEMIS_PASSWORD
+          value: admin
+        - name: SPRING_ARTEMIS_PORT
+          value: "61616"
+        - name: SPRING_ARTEMIS_USER
+          value: admin
+        ports:
+        - containerPort: 8080
+          name: html
+        volumeMounts:
+        - name: cdd-dir
+          mountPath: /home/cdd/.cdd
+      # NOTE: for container to have write permissions to directory the permissions
+      # must be correct and you need to change the security context:
+      #     ls -laZ logs  --check the context
+      #     chcon -Rt svirt_sandbox_file_t logs  --change the context to allow kub containers to see it
+      restartPolicy: Always
+      volumes:
+      - name: cdd-dir
+        hostPath:
+          path: /home/cdd/.cdd
+          type: Directory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bank-broker
+spec:
+  ports:
+  - name: bank-broker-l
+    port: 8161
+    targetPort: 8161
+  - name: bank-broker-h
+    port: 61616
+    targetPort: 61616
+  selector:
+    app: broker
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bank-broker-dep
+  labels:
+    app: broker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: broker
+  template:
+    metadata:
+      labels:
+        app: broker
+    spec:
+      containers:
+      - name: broker
+        image: asburymr/digitalbroker:latest
+        env:
+        - name: CA_APM_MONITORING_ENABLED
+          value: "true"
+        ports:
+        - containerPort: 8161
+          name: bank-broker-l
+        - containerPort: 61616
+          name: bank-broker-h
+        resources: {}
+      restartPolicy: Always
+      volumes: null
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bank-credit
+spec:
+  ports:
+  - name: bank-credit-ws
+    port: 3500
+    targetPort: 8080
+  selector:
+    app: credit
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bank-credit-dep
+  labels:
+    app: credit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: credit
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: credit
+    spec:
+      containers:
+      - name: credit
+        image: asburymr/digitalcredit:2.0.0.102
+        env:
+        - name: CA_APM_MONITORING_ENABLED
+          value: "true"
+        - name: IO_DEMO_CREDIT_APP_PROCESS_ENABLED
+          value: "true"
+        - name: IO_DEMO_CREDIT_APP_PROCESS_TIME
+          value: "20"
+        - name: IO_DEMO_PARTNER_CREDIT_APP_REQUEST
+          value: CREDIT.APP.REQUEST
+        - name: IO_DEMO_PARTNER_CREDIT_APP_RESPONSE
+          value: CREDIT.APP.RESPONSE
+        - name: LOGGING_LEVEL_IO_DEMO_CREDIT
+          value: INFO
+        - name: SPRING_ARTEMIS_HOST
+          value: bank-broker
+        - name: SPRING_ARTEMIS_MODE
+          value: native
+        - name: SPRING_ARTEMIS_PASSWORD
+          value: admin
+        - name: SPRING_ARTEMIS_PORT
+          value: "61616"
+        - name: SPRING_ARTEMIS_USER
+          value: admin
+        ports:
+        - containerPort: 8080
+          name: bank-credit-ws
+      restartPolicy: Always
+      volumes: null
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: bank-ingress
+  annotations:
+     nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  backend:
+    serviceName: bank-front
+    servicePort: 8082

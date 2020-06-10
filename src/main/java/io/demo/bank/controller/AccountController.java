@@ -53,7 +53,7 @@ public class AccountController extends CommonController {
 	
 	/* 
 	 * ADMIN Role        
-	 * Get All Accounts   
+	 * Get All Accounts    
 	 */ 
 	@PreAuthorize(Constants.HAS_ROLE_ADMIN)
 	@GetMapping(Constants.URI_API_ACCT_ALL)

@@ -30,7 +30,7 @@ public class VisaService {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(VisaService.class);
 	
-	// Visa Service URL    
+	// Visa Service URL     
 	private static String apiBaseUrl;
 	
 	@Autowired

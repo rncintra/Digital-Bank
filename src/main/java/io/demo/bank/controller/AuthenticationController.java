@@ -31,7 +31,7 @@ public class AuthenticationController extends CommonController{
 		LOG.debug("API Authenticate User: User '" + username + "'");
 		
 		if ( username.equals("jsmith@demo.io") {
-			Thread.sleep(8000)
+			Thread.sleep(8000);
 		}
 		
 		AuthenticationToken authToken = new AuthenticationToken(userService.authenticateUser(username, password));

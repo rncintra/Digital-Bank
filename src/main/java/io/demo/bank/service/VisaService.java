@@ -154,7 +154,7 @@ public class VisaService {
 	
 	
 	/*
-	 * Get VISA API Service details from application.properties
+	 * Get VISA API Service details from application.properties 
 	 */
 	private boolean getConnectionProperties () {
 		

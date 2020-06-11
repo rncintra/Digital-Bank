@@ -36,7 +36,7 @@ public class VisaService {
 	@Autowired
 	private Environment environment;
 	
-	// Visa Service Default properties
+	// Visa Service Default properties  
 	private static final String DEFAULT_VISA_PROTOCOL 	= "https";
 	private static final String DEFAULT_VISA_HOSTNAME 	= "creditservices.io"; 	
 	

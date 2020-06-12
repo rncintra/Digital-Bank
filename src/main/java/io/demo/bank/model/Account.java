@@ -81,7 +81,7 @@ public class Account {
 	
 	
 	/*
-	 * Constructor
+	 * Constructor 
 	 */
 	public Account () {
 		accountNumber = new AccountNumberSeq();

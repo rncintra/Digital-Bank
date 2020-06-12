@@ -124,7 +124,7 @@ public class Account {
 	}
 	
 	/**
-	 * @return the currentBalance
+	 * @return the currentBalance  
 	 */
 	public BigDecimal getCurrentBalance() {
 		return currentBalance;

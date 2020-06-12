@@ -117,7 +117,7 @@ public class Account {
 	}
 
 	/**
-	 * @return the accountNumber
+	 * @return the accountNumber 
 	 */
 	public Long getAccountNumber() {
 		return accountNumber.getId();

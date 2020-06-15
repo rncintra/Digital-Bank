@@ -45,7 +45,7 @@ abstract class WebCommonController {
 	public static final String MODEL_ATT_ERROR_MSG				= "errorMsg";
 	public static final String MODEL_ATT_SUCCESS_MSG			= "successMsg";
 	
-	// public model attribute constants -> Accounts
+	// public model attribute constants -> Accounts 
 	public static final String MODEL_ATT_ACCOUNT 				= "account";
 	public static final String MODEL_ATT_ACCT_ID				= "acctId";
 	public static final String MODEL_ATT_ACCT_NEW_NAME			= "acctNewName";

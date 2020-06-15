@@ -36,7 +36,7 @@ public class AuthenticationController extends CommonController{
 	}
 	
 	/*
-	 * Custom Response Body for Authentication Token
+	 * Custom Response Body for Authentication Token  
 	 */
 	private static class AuthenticationToken {
 		

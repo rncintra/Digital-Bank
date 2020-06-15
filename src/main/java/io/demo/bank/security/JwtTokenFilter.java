@@ -33,7 +33,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 			  }
 	    } catch (RestInvalidArguementException ex) {
 	    	
-	      // this is very important, since it guarantees the user is not authenticated at all    
+	      // this is very important, since it guarantees the user is not authenticated at all      
 	      SecurityContextHolder.clearContext();
 	      
 	      httpServletResponse.sendError(HttpStatus.BAD_REQUEST.value(), ex.getMessage());

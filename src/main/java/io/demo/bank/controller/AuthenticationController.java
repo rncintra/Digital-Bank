@@ -22,7 +22,7 @@ public class AuthenticationController extends CommonController{
 	UserService userService;
 
 	/*
-	 * Authenticate User and provide an auth token    
+	 * Authenticate User and provide an auth token      
 	 */
 	@PostMapping(Constants.URI_API_AUTH)
 	public ResponseEntity<?> authenticateUser(@RequestParam(required=true) String username,

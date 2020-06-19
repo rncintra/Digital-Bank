@@ -54,6 +54,11 @@
     "type": "java.lang.String",
     "description": "A description for 'io.demo.bank.atm.protocol'"
   },
+    {
+    "name": "io.demo.bank.perf.trigger",
+    "type": "java.lang.String",
+    "description": "Variable to slow transactions for BizOps demo (Y or N) 'io.demo.bank.perf.trigger'"
+  },
   {
     "name": "io.demo.bank.atm.protocol",
     "type": "java.lang.String",

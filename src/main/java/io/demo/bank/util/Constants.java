@@ -265,8 +265,9 @@ public class Constants {
 	public static final String APP_VISA_PROTOCOL					= "io.demo.bank.visa.protocol";
 	public static final String APP_VISA_HOST						= "io.demo.bank.visa.host";
 	public static final String APP_VISA_PORT						= "io.demo.bank.visa.port";
-	
-	// Credit API URIs
+	public static final String APP_PERF_TRIGGER						= "io.demo.bank.perf.trigger";
+
+	/ Credit API URIs
 	public static final String APP_CREDIT_URI_API_BASE				= "/api/v1";	
 	public static final String APP_CREDIT_URI_API_AUTH				= "/auth";	
 	public static final String APP_CREDIT_URI_CC_ID					= "/credit/card/{0}";

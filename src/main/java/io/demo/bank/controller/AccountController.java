@@ -52,7 +52,7 @@ public class AccountController extends CommonController {
 	
 	
 	/*
-	 * ADMIN Role
+	 * ADMIN Role new release
 	 * Get All Accounts test new release
 	 */
 	@PreAuthorize(Constants.HAS_ROLE_ADMIN)

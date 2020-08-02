@@ -21,7 +21,7 @@ public class DigitalBankApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(DigitalBankApplication.class, args);
 	}
-	
+// Aug2	
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		return builder.build();

@@ -49,7 +49,7 @@ public class AccountController extends CommonController {
 	
 	@Autowired
 	AccountService accountService;
-	
+//  bk1 update	
 	
 	/*
 	 * ADMIN Role

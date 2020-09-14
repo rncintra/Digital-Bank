@@ -251,7 +251,7 @@ public class AccountController extends CommonController {
 		Account newAccount = new Account();
 		AccountType at = accountService.getAccoutTypeByCode(account.getAccountTypeCode());
 	
-		// if we meet the minimum balance requirement, then open account
+		// if we meet the minimum balance requirement,  then open account
 		if (account.getOpeningDeposit().compareTo(at.getMinDeposit()) >= 0) {
 			
 			OwnershipType ot = accountService.getOwnershipTypeByCode(account.getOwnerTypeCode());

@@ -364,7 +364,7 @@ public class AccountController extends CommonController {
 				if (action.equals(TransactionType.CAT_CREDIT)) {
 					bDebit = false;
 					
-					LOG.debug("REST New Transaction: Transaction Action will be CREDIT");
+					LOG.debug("REST New Transaction: Transaction  Action will be CREDIT");
 				}
 			}
 			else {
@@ -374,8 +374,8 @@ public class AccountController extends CommonController {
 		} else if (transactionType.getCategory().equals(TransactionType.CAT_CREDIT)) {
 			
 			bDebit = false;
-			LOG.debug("REST New Transaction: Transaction Type Category is CREDIT");
-			LOG.debug("REST New Transaction: Transaction Action will be CREDIT");
+			LOG.debug("REST New Transaction: Transaction Type  Category is CREDIT");
+			LOG.debug("REST New Transaction: Transaction Action  will be CREDIT");
 		}
 		
 		// if it is a DEBIT Transaction
@@ -385,7 +385,7 @@ public class AccountController extends CommonController {
 			BigDecimal maxAvailable = account.getCurrentBalance().add(account.getAccountType().getOverdraftLimit());
 			
 			if (transaction.getAmount().compareTo(maxAvailable) == 1) {
-				throw new RestNotAcceptableException ("The withdraw amount ($" 
+				throw new RestNotAcceptableException ("The withdraw  amount ($" 
 						 							  + transaction.getAmount()
 						 							  + ") is greater than the available balance ($"
 						 							  + account.getCurrentBalance() + ") and overdraft limit ($"
@@ -395,14 +395,14 @@ public class AccountController extends CommonController {
 			// Add new Debit Transaction
 			accountService.debitTransaction(account, transaction);
 			
-			LOG.debug("REST New Transaction: Add new DEBIT Transaction");
+			LOG.debug("REST New Transaction: Add new DEBIT  Transaction");
 		} 
 		else {
 			
 			// Add new Credit Transaction
 			accountService.creditTransaction(account, transaction);
 			
-			LOG.debug("REST New Transaction: Add new CREDIT Transaction");
+			LOG.debug("REST New Transaction: Add new CREDIT  Transaction");
 		}
 		
 		// Return the last 2 transactions. This is done in case there is an overdraft fee. This allows the user
@@ -535,7 +535,7 @@ public class AccountController extends CommonController {
 	 */
 	private static class TransferFunds {
 		
-		@NotNull (message="To Account is required")
+		@NotNull (message="To Account is  required")
 		private Long toAccountId;
 		
 		@Positive (message=Messages.ACCT_TRAN_AMT_POSITIVE)

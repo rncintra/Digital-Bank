@@ -27,3 +27,4 @@ public class DigitalBankApplication extends SpringBootServletInitializer {
 		return builder.build();
 	}
 }
+ 

@@ -232,7 +232,7 @@ public class AccountController extends CommonController {
 		} else {
 			throw new RestNotAcceptableException("The initial deposit ($" 
 					 + account.getOpeningDeposit() 
-					 + ") entered does not meet the minimum amount ($" 
+					 + ") entered does not meet the min amount ($" 
 					 + at.getMinDeposit() 
 					 + ") required. Please enter a valid deposit amount.");
 		}

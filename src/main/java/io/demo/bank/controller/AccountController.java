@@ -63,7 +63,7 @@ public class AccountController extends CommonController {
 	
 	/*
 	 * API Role thing
-	 * Get All Accounts
+	 * Get All Accounts xxx
 	 */
 	@GetMapping(Constants.URI_API_ACCT)
 	public ResponseEntity<?> getAccount(@PathVariable(Constants.PATH_VARIABLE_ID) Long id) {	

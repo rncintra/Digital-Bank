@@ -52,8 +52,8 @@ public class AccountController extends CommonController {
 	
 	
 	/*
-	 * ADMIN Role
-	 * Get All Accounts new release 20200918 11:38am 
+	 * ADMIN Role US836
+	 * Get All Accounts new release 20200918 11:59am 
 	 */
 	@PreAuthorize(Constants.HAS_ROLE_ADMIN)
 	@GetMapping(Constants.URI_API_ACCT_ALL)

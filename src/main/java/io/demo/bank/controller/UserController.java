@@ -42,6 +42,7 @@ public class UserController extends CommonController{
 	@Autowired
 	UserService userService;
 	
+	/*  bgk   01  */
 	
 	/*
 	 * ADMIN Role

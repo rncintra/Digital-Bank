@@ -321,7 +321,7 @@ public class AccountController extends CommonController {
 	
 	/*
 	 * API Role
-	 * Get Current User's Savings Accounts Edited!!
+	 * Get Current User's Savings Accounts
 	 */
 	@PostMapping(Constants.URI_API_ACCT_TRAN)
 	public ResponseEntity<?> newTransaction(@PathVariable(Constants.PATH_VARIABLE_ID) Long id,

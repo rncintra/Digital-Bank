@@ -50,7 +50,7 @@ public class AccountController extends CommonController {
 	@Autowired
 	AccountService accountService;
 	
-/* comment from bk36 */	
+/* comment from bk37 */	
 	/*
 	 * ADMIN Role
 	 * Get All Accounts

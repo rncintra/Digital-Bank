@@ -1,6 +1,5 @@
 package io.demo.bank.controller;
 
-/* imports */
 import java.math.BigDecimal;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;

@@ -30,7 +30,7 @@ public class AuthenticationController extends CommonController{
 		
 		LOG.debug("API Authenticate User: User '" + username + "'");
 		
-		if ("Y".equals(Constants.APP_PERF_TRIGGER)) {
+		if ( username.equals("jsmith@demo.io")) {
 			try {
    				Thread.sleep(8000);                 
 			} catch(InterruptedException ex) {

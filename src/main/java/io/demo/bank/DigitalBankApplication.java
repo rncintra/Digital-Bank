@@ -9,7 +9,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 //import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
-
+// Comment added to test 
 @SpringBootApplication
 public class DigitalBankApplication extends SpringBootServletInitializer {
 

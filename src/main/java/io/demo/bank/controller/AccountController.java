@@ -60,7 +60,7 @@ public class AccountController extends CommonController {
 	public ResponseEntity<?> getAllAccounts() {		
 		return ResponseEntity.ok(accountService.getAllAccounts());
 	}
-	
+	 
 	/*
 	 * API Role
 	 * Get All Accounts

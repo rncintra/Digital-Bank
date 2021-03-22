@@ -356,7 +356,7 @@ public class AccountController extends CommonController {
 		if (transactionType.getCategory().equals(TransactionType.CAT_EITHER)) {
 
 			LOG.debug("REST New Transaction: Transaction Type Category is EITHER");
-			LOG.debug("REST New Transaction: Transaction Action is -> '" + action + "'");
+			LOG.debug("REST New Transaction: Transaction Action is ->  '" + action + "'");
 			
 			
 			// If transaction type category is EITHER, then action must be provided

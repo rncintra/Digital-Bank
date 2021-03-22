@@ -171,7 +171,7 @@ public class AccountController extends CommonController {
 	
 	/*
 	 * ADMIN Role
-	 * Get User's Checking Accounts   
+	 * Get User's Checking Accounts    
 	 */
 	@PreAuthorize(Constants.HAS_ROLE_ADMIN)
 	@GetMapping(Constants.URI_API_USR_ACCT_CHK)

@@ -234,7 +234,7 @@ public class AccountController extends CommonController {
 					 + account.getOpeningDeposit() 
 					 + ") entered does not meet the min amount ($" 
 					 + at.getMinDeposit() 
-					 + ") required. Please enter a valid deposit amount.");
+					 + ") required. Please enter a valid deposit amount. ");
 		}
 		
 		return ResponseEntity.ok(newAccount);

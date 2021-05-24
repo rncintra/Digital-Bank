@@ -88,7 +88,7 @@ public class AccountController extends CommonController {
 	@PreAuthorize(Constants.HAS_ROLE_ADMIN)
 	@GetMapping(Constants.URI_API_ACCT_OWNER)
 	public ResponseEntity<?> getOwner(@PathVariable(Constants.PATH_VARIABLE_ID) Long id) {			
-		return ResponseEntity.ok(getAccountById(id).getOwner());
+		return ResponseEntity.ok(getAccountById(id).getOwner()); 
 	}
 	
 	/*

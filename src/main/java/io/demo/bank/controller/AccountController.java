@@ -285,7 +285,7 @@ public class AccountController extends CommonController {
 		Users authUser = getAuthenticatedUser();
 		Account account = getAccountById(id);
 		
-		// If this is not an ADMIN user, then make sure the account belongs to the user
+		// If this is not an ADMIN user, then make sure the account belongs to the user 
 		if (!hasRole(authUser, Role.ROLE_ADMIN)) {
 			if (!(account.getOwner().getId() == authUser.getId() || account.getCoowner().getId() == authUser.getId())) {
 				throw new RestForbiddenException(Messages.ACCESS_FORBIDDEN);

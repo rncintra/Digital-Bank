@@ -535,7 +535,7 @@ public class AccountController extends CommonController {
 	 */
 	private static class TransferFunds {
 		
-		@NotNull (message="To Account is required")
+		@NotNull (message="To Account is required ")
 		private Long toAccountId;
 		
 		@Positive (message=Messages.ACCT_TRAN_AMT_POSITIVE)

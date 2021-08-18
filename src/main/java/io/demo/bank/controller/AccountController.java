@@ -230,7 +230,7 @@ public class AccountController extends CommonController {
 			accountService.createNewAccount(newAccount);
 			
 		} else {
-			throw new RestNotAcceptableException("The initial deposit ($" 
+			throw new RestNotAcceptableException("The initial  deposit ($" 
 					 + account.getOpeningDeposit() 
 					 + ") entered does not meet the minimum amount ($" 
 					 + at.getMinDeposit() 
@@ -350,7 +350,7 @@ public class AccountController extends CommonController {
 		// Assume the request is for Debit
 		boolean bDebit = true;
 		
-		LOG.debug("REST New Transaction: Transaction Type Code is '" + newTransaction.getTransactionTypeCode() + "'");
+		LOG.debug("REST New Transaction: Transaction  Type Code is '" + newTransaction.getTransactionTypeCode() + "'");
 
 		// Determine whether the request is for a CREDIT or DEBIT Transaction
 		if (transactionType.getCategory().equals(TransactionType.CAT_EITHER)) {
@@ -364,7 +364,7 @@ public class AccountController extends CommonController {
 				if (action.equals(TransactionType.CAT_CREDIT)) {
 					bDebit = false;
 					
-					LOG.debug("REST New Transaction: Transaction Action will be CREDIT");
+					LOG.debug("REST New Transaction:  Transaction Action will be CREDIT");
 				}
 			}
 			else {
@@ -385,7 +385,7 @@ public class AccountController extends CommonController {
 			BigDecimal maxAvailable = account.getCurrentBalance().add(account.getAccountType().getOverdraftLimit());
 			
 			if (transaction.getAmount().compareTo(maxAvailable) == 1) {
-				throw new RestNotAcceptableException ("The withdraw amount ($" 
+				throw new RestNotAcceptableException ("The withdraw  amount ($" 
 						 							  + transaction.getAmount()
 						 							  + ") is greater than the available balance ($"
 						 							  + account.getCurrentBalance() + ") and overdraft limit ($"
@@ -402,7 +402,7 @@ public class AccountController extends CommonController {
 			// Add new Credit Transaction
 			accountService.creditTransaction(account, transaction);
 			
-			LOG.debug("REST New Transaction: Add new CREDIT Transaction");
+			LOG.debug("REST New Transaction: Add new CREDIT  Transaction");
 		}
 		
 		// Return the last 2 transactions. This is done in case there is an overdraft fee. This allows the user
@@ -535,7 +535,7 @@ public class AccountController extends CommonController {
 	 */
 	private static class TransferFunds {
 		
-		@NotNull (message="To Account is  required")
+		@NotNull (message="To Account is required")
 		private Long toAccountId;
 		
 		@Positive (message=Messages.ACCT_TRAN_AMT_POSITIVE)

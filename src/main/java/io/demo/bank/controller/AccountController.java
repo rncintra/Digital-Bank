@@ -548,7 +548,7 @@ public class AccountController extends CommonController {
 			return toAccountId;
 		}
 
-		/**
+		/** 
 		 * @return the amount    
 		 */
 		public BigDecimal getAmount() {

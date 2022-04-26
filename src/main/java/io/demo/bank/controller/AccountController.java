@@ -276,7 +276,7 @@ public class AccountController extends CommonController {
 	
 	/*
 	 * API Role
-	 * Update Account
+	 * Update Account.
 	 */
 	@PutMapping(Constants.URI_API_ACCT)
 	public ResponseEntity<?> updateAccount(@PathVariable(Constants.PATH_VARIABLE_ID) Long id,

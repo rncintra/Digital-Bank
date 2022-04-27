@@ -209,7 +209,7 @@ public class AccountController extends CommonController {
 	
 	/*
 	 * API Role
-	 * Add New Account
+	 * Add New Account.
 	 */
 	@PostMapping(Constants.URI_API_USR_ACCT_CURR)
 	public ResponseEntity<?> createAccount(@RequestBody @Valid NewAccount account) {		

@@ -549,7 +549,7 @@ public class AccountController extends CommonController {
 		}
 
 		/**
-		 * @return the amount 
+		 * @return the amount  
 		 */
 		public BigDecimal getAmount() {
 			return amount;

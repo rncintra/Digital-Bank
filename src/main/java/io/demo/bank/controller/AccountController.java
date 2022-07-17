@@ -173,7 +173,7 @@ public class AccountController extends CommonController {
 	 * ADMIN Role   
 	 * Get User's Checking Accounts
 	 */
-	@PreAuthorize(Constants.HAS_ROLE_ADMIN)
+	@PreAuthorize(Constants.HAS_ROLE_USER)
 	@GetMapping(Constants.URI_API_USR_ACCT_CHK)
 	public ResponseEntity<?> getCheckingAccounts(@PathVariable(Constants.PATH_VARIABLE_ID) Long id) {		
 		return ResponseEntity.ok(accountService.getCheckingAccounts(getUserById(id)));
